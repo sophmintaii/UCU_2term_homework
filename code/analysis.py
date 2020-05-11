@@ -140,10 +140,10 @@ def analyse_students_merge(path, ukrainian):
     return figure_dep, figure_doc, figure_sui
 
 
-def analyse_ukrainian_students(ukrainian):
+def analyser_ukrainian_students(ukrainian):
     """
-    list -> plotly graphs
-    Returns line and pie diagrams for different parameters od ukrainian students.
+    list -> PsyStudentAnalyser
+    Returns Analyser to analyse Ukrainian students mental health.
     """
     # create an analyser for all the students:
     ukrainian_analyser = PsyStudentAnalyser()
@@ -161,7 +161,15 @@ def analyse_ukrainian_students(ukrainian):
                               list_dep=student["list_dep"].split(", "),
                               list_anx=student["list_anx"].split(", "))
         ukrainian_analyser.add_person(new_student)
+    return ukrainian_analyser
 
+
+def analyse_ukrainian(ukrainian_analyser):
+    """
+    PsyStudentAnalyser -> plotly diagrams.
+    Returns pie and line diagrams for possible parameters
+    of ukrainian students.
+    """
     # study
     pie_study = px.pie(pd.DataFrame(ukrainian_analyser.get_study(
     ).get_df_for_pie(), columns=["students"]),
@@ -204,3 +212,47 @@ def analyse_ukrainian_students(ukrainian):
 
     return pie_study, pie_suicidal_thoughts, pie_self_harm, pie_dep_daignosed, \
         pie_behavior, pie_anx_diagnosed, line_list_dep, line_list_anx
+
+
+def get_countries_data(path_percent, path_total, col):
+    """
+    str, str, str -> plotly diagram
+    Returns line diagram based on files that contain
+    name of the country, percent of people suffering from d/o's
+    and total population of the country for every year.
+    """
+    # read data from csv file to pandas data frame
+    with open(path_percent, "r", encoding="utf-8") as file:
+        data = pd.read_csv(file, usecols=["Entity", "Year", col]).to_dict(
+            orient="records"
+        )
+    with open(path_total, "r", encoding="utf-8") as file:
+        data_total = pd.read_csv(
+            file, usecols=["Entity", "Year", "Population"]).to_dict(orient="records")
+    
+    for record in data:
+        record["cy"] = record["Entity"] + str(record["Year"])
+    
+    cy = dict()
+    for record in data_total:
+        cy[record["Entity"] + str(record["Year"])] = record["Population"]
+    
+    result = []
+    result_world = []
+    for record in data:
+        if record["cy"] in cy:
+            record["Population"] = cy[record["cy"]]
+            record["Number of ill"] = record["Population"] * record[col] / 100
+            if record["Entity"] != "World":
+                result.append(record)
+            else:
+                result_world.append(record)
+    
+    df = pd.DataFrame(result, columns=["Entity", "Year", "Number of ill"])
+    figure = px.line(df, x="Year", y="Number of ill",
+                      color="Entity", line_group="Entity", hover_name="Entity")
+
+    df_world = pd.DataFrame(result_world, columns=["Entity", "Year", "Number of ill"])
+    figure_world = px.line(df_world, x="Year", y="Number of ill")
+    
+    return figure, figure_world
