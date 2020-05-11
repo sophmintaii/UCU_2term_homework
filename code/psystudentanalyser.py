@@ -143,9 +143,10 @@ class PsyStudentAnalyser(PsyAnalyser):
         Returns percent of people who think studying negatively
         affected their mental health.
         """
-        result = Response(y=len(self.groups))
+        result = Response()
         for group in self.groups:
             result.value_x += self.groups[group].study
+            result.value_y += self.groups[group].total
         return result
 
     def get_suicidal_thoughts(self):
@@ -153,9 +154,10 @@ class PsyStudentAnalyser(PsyAnalyser):
         PsyAnalyser, bool -> ResponseList
         Returns percent of people who had/have suicidal thoughts.
         """
-        result = Response(y=len(self.groups))
+        result = Response()
         for group in self.groups:
             result.value_x += self.groups[group].suicidal_thoughts
+            result.value_y += self.groups[group].total
         return result
 
     def get_self_harm(self):

@@ -229,14 +229,14 @@ def get_countries_data(path_percent, path_total, col):
     with open(path_total, "r", encoding="utf-8") as file:
         data_total = pd.read_csv(
             file, usecols=["Entity", "Year", "Population"]).to_dict(orient="records")
-    
+
     for record in data:
         record["cy"] = record["Entity"] + str(record["Year"])
-    
+
     cy = dict()
     for record in data_total:
         cy[record["Entity"] + str(record["Year"])] = record["Population"]
-    
+
     result = []
     result_world = []
     for record in data:
@@ -247,12 +247,170 @@ def get_countries_data(path_percent, path_total, col):
                 result.append(record)
             else:
                 result_world.append(record)
-    
+
     df = pd.DataFrame(result, columns=["Entity", "Year", "Number of ill"])
     figure = px.line(df, x="Year", y="Number of ill",
-                      color="Entity", line_group="Entity", hover_name="Entity")
+                     color="Entity", line_group="Entity", hover_name="Entity")
 
-    df_world = pd.DataFrame(result_world, columns=["Entity", "Year", "Number of ill"])
+    df_world = pd.DataFrame(result_world, columns=[
+                            "Entity", "Year", "Number of ill"])
     figure_world = px.line(df_world, x="Year", y="Number of ill")
-    
+
     return figure, figure_world
+
+
+def create_web():
+    """
+    Creates and returns web application to run.
+    """
+    countries_dep = get_countries_data("docs/depression_countries.csv",
+                                      "docs/depression_m_vs_f.csv",
+                                      "Prevalence - Depressive disorders - Sex: Both - Age: Age-standardized (Percent) (%)")
+    countries_anx = get_countries_data("docs/anxiety_countries.csv",
+                                       "docs/anxiety_m_vs_f.csv",
+                                       "Prevalence - Anxiety disorders - Sex: Both - Age: Age-standardized (Percent) (%)")
+    ukrainian = get_from_google_sheets(
+        ["ULA_responses", "UCU_responses", "KhNURE_responses", "KhNU_responses", "KhAI_responses", "others_responses"])
+    pie_study, pie_suicidal_thoughts, pie_self_harm, pie_dep_daignosed, pie_behavior, pie_anx_diagnosed, line_list_dep, line_list_anx = analyse_ukrainian(
+        analyser_ukrainian_students(ukrainian))
+    figure1, figure2 = analyse_suicide_by_age("docs/suicide_by_age.csv")
+    figure_dep, figure_doc, figure_sui = analyse_students_merge("docs/students.csv", ukrainian)
+
+    external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
+    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+    app.layout = html.Div(children=[
+        html.H1(children="Деяка статистика стосовно ментальних захворювань."),
+        html.H2(children="Залежність кількості людей, страждающих на депресію"),
+        html.Div(children="""
+            Різні країни:
+            """),
+        dcc.Graph(
+            id="dep-counties-graph",
+            figure=countries_dep[0]),
+            html.Div(children="""
+            Світ:
+            """),
+            dcc.Graph(
+                id="dep-world-graph",
+                figure=countries_dep[1]
+            ),
+            html.H2(
+                children="Залежність кількості людей, страждающих на тривожність"),
+            html.Div(children="""
+            Різні країни:
+            """),
+            dcc.Graph(
+                id="anx-counties-graph",
+                figure=countries_anx[0]),
+            html.H2(
+                children="Який відсоток студентів вважає, що навчання негативно вплинуло на їхнє ментальне здоров'я?"),
+            html.Div(children="""
+            Червоний - так, синій - ні.
+            """),
+            dcc.Graph(
+                id="study-graph",
+                figure=pie_study),
+            html.H2(
+                children="Який відсоток студентів має або мав суїцидальні думки?"),
+            html.Div(children="""
+            Червоний - так, синій - ні.
+            """),
+            dcc.Graph(
+                id="st-graph",
+                figure=pie_suicidal_thoughts),
+            html.H2(
+                children="Який відсоток студентів практикував або практикує селф-харм?"),
+            html.Div(children="""
+            Червоний - так, синій - ні.
+            """),
+            dcc.Graph(
+                id="sh-graph",
+                figure=pie_self_harm),
+            html.H2(
+                children="Який відсоток студентів має діагностований афективний розлад?"),
+            html.Div(children="""
+            Червоний - так, синій - ні.
+            """),
+            dcc.Graph(
+                id="dd-graph",
+                figure=pie_dep_daignosed),
+            html.H2(
+                children="Який відсоток студентів часто змінює свою поведінку та плани через тривожність?"),
+            html.Div(children="""
+            Червоний - ні, синій - так.
+            """),
+            dcc.Graph(
+                id="b-graph",
+                figure=pie_behavior),
+            html.H2(
+                children="Який відсоток студентів має дагностований тривожний розлад?"),
+            html.Div(children="""
+            Червоний - так, синій - ні.
+            """),
+            dcc.Graph(
+                id="ad-graph",
+                figure=pie_anx_diagnosed),
+            html.H2(
+                children="Які афективні розлади найбільш поширені серед студентів?"),
+            html.Div(children="""
+            за 100% вважаються всі студенти, що мають афективні розлади або їхні ознаки.
+            """),
+            dcc.Graph(
+                id="ddo-graph",
+                figure=line_list_dep),
+            html.H2(
+                children="Які тривожні розлади найбільш поширені серед студентів?"),
+            html.Div(children="""
+            за 100% вважаються всі студенти, що мають тривожні розлади або їхні ознаки.
+            """),
+            dcc.Graph(
+                id="ado-graph",
+                figure=line_list_anx),
+            html.H2(
+                children="Залежність кількості суїцидів від віку для кожного року."),
+            html.Div(children="""
+            Доступні даня для території Англії та Уельсу.
+            """),
+            dcc.Graph(
+                id="sui-age-graph",
+                figure=figure1),
+            html.H2(
+                children="Залежність середнього віку суїциду для кожного року."),
+            html.Div(children="""
+            Доступні даня для території Англії та Уельсу.
+            """),
+            dcc.Graph(
+                id="m-age-graph",
+                figure=figure2),
+            html.H2(
+                children="Залежність кількості студентів з депресивними розладами від віку."),
+            html.Div(children="""
+            Дані для Українських та Японсько-Британських студентів.
+            """),
+            dcc.Graph(
+                id="dep-s-graph",
+                figure=figure_dep),
+            html.H2(
+                children="Залежність кількості студентів, що відвідували лікаря, від віку."),
+            html.Div(children="""
+            Дані для Українських та Японсько-Британських студентів.
+            """),
+            dcc.Graph(
+                id="doc-s-graph",
+                figure=figure_doc),
+            html.H2(
+                children="Залежність кількості студентів, що мали спроби суїциду, від віку."),
+            html.Div(children="""
+            Дані для Українських та Японсько-Британських студентів.
+            """),
+            dcc.Graph(
+                id="sui-s-graph",
+                figure=figure_sui)
+            ])
+    return app
+
+
+if __name__ == "__main__":
+    app = create_web()
+    app.run_server(debug=True)
+

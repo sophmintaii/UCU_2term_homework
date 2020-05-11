@@ -6,7 +6,7 @@ def get_records():
     # define scope and create credentials using client_secret.json
     # (client_secret.json is a file you get when you enable Google Sheets API)
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('../folder/client_secret.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('./client_secret.json', scope)
     # create a client who will have access to Google Sheets
     # remember to give to your client email edit rights
     client = gspread.authorize(creds)
