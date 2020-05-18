@@ -73,7 +73,7 @@ class PsyAnalyser:
         result = ResponseList()
         for group in self.groups:
             result += Response(x=group, y=self.groups[group].depression /
-                                          self.groups[group].depression_resp)
+                               self.groups[group].depression_resp)
         return result
 
     def get_anxiety(self):
@@ -85,7 +85,7 @@ class PsyAnalyser:
         result = ResponseList()
         for group in self.groups:
             result += Response(x=group, y=self.groups[group].anxiety /
-                                          self.groups[group].anxiety_resp)
+                               self.groups[group].anxiety_resp)
         return result
 
     def get_suicide(self):
@@ -97,7 +97,7 @@ class PsyAnalyser:
         result = ResponseList()
         for group in self.groups:
             result += Response(x=group, y=self.groups[group].suicide /
-                                          self.groups[group].suicide_resp)
+                               self.groups[group].suicide_resp)
         return result
 
     @property

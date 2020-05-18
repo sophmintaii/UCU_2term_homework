@@ -78,7 +78,7 @@ class ResponseList:
         else:
             node = self._head
             while (node.next is not None) and (node.next.value_x < new_node.value_x):
-                node = node.next  
+                node = node.next
             new_node.next, node.next = node.next, new_node
         return self
 
@@ -130,12 +130,15 @@ class _ResponseListIterator:
         return self
 
     def next(self):
+        """
+        helper method for Iterator
+        :return: next item for iterator of raises Exception
+        """
         if self._cur_node is None:
             raise StopIteration
-        else:
-            item = self._cur_node.item
-            self._cur_node = self._cur_node.next
-            return item
+        item = self._cur_node.item
+        self._cur_node = self._cur_node.next
+        return item
 
 
 class Response:
@@ -174,15 +177,15 @@ class Response:
         return self.__value_x
 
     @value_x.setter
-    def value_x(self, x):
+    def value_x(self, val_x):
         """
         Setter for __value_x parameter of Response object.
-        :param x: value to set.
+        :param val_x: value to set.
         :return:
         """
         try:
-            assert isinstance(x, str) or isinstance(x, int)
-            self.__value_x = x
+            assert isinstance(val_x, (str, int))
+            self.__value_x = val_x
         except AssertionError:
             self.value_x = 0
 
@@ -195,14 +198,14 @@ class Response:
         return self.__value_y
 
     @value_y.setter
-    def value_y(self, y):
+    def value_y(self, val_y):
         """
         Setter for __value_y parameter of Response object.
-        :param y: value to set.
+        :param val_y: value to set.
         :return:
         """
         try:
-            assert isinstance(y, float) or isinstance(y, int)
-            self.__value_y = y
+            assert isinstance(val_y, (float, int))
+            self.__value_y = val_y
         except AssertionError:
             self.value_y = 0
