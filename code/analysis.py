@@ -18,7 +18,7 @@ from people import Student
 def count_resp(data):
     """
     dict -> dict
-    Counts sum of respondents in particulat year.
+    Counts sum of respondents in particular year.
     """
     years = dict()
     for record in data:
@@ -84,7 +84,7 @@ def get_from_google_sheets(sheets):
     scope = ['https://spreadsheets.google.com/feeds',
              'https://www.googleapis.com/auth/drive']
     creds = ServiceAccountCredentials.from_json_keyfile_name(
-        'client_secret.json', scope)
+        '../client_secret.json', scope)
     # create a client who will have access to Google Sheets
     # remember to give to your client email edit rights
     client = gspread.authorize(creds)
@@ -118,10 +118,10 @@ def analyse_students_merge(path, ukrainian):
             record["Doctor"] = 1 if record["Doctor"] != 0 else 0
             record["Suicide"] = 1 if str(record["Suicide"]) in [
                 "Yes", "1"] else 0
-        student = Student(age=int(
-            record["Age"]), depression=record["Dep"],
-                          suicide=record["Suicide"], doctor=record["Doctor"])
-        student_analyser.add_person(student)
+            student = Student(age=int(
+                record["Age"]), depression=record["Dep"],
+                suicide=record["Suicide"], doctor=record["Doctor"])
+            student_analyser.add_person(student)
 
     df_dep = pd.DataFrame(sorted(student_analyser.get_depression(
     ).get_df_for_line(), key=lambda t: t[0]), columns=["age", "depression%"])
@@ -233,7 +233,7 @@ def get_countries_data(path_percent, path_total, col):
     with open(path_total, "r", encoding="utf-8") as file:
         data_total = pd.read_csv(
             file, usecols=["Entity", "Year", "Population"]).to_dict(
-                orient="records")
+            orient="records")
 
     for record in data:
         record["cy"] = record["Entity"] + str(record["Year"])
@@ -268,13 +268,13 @@ def create_web():
     """
     Creates and returns web application to run.
     """
-    countries_dep = get_countries_data("docs/depression_countries.csv",
-                                       "docs/depression_m_vs_f.csv",
+    countries_dep = get_countries_data("../docs/depression_countries.csv",
+                                       "../docs/depression_m_vs_f.csv",
                                        "Prevalence - Depressive disorders - "
                                        "Sex: Both - Age: Age-standardized "
                                        "(Percent) (%)")
-    countries_anx = get_countries_data("docs/anxiety_countries.csv",
-                                       "docs/anxiety_m_vs_f.csv",
+    countries_anx = get_countries_data("../docs/anxiety_countries.csv",
+                                       "../docs/anxiety_m_vs_f.csv",
                                        "Prevalence - Anxiety disorders - Sex: "
                                        "Both - Age: Age-standardized (Percent)"
                                        " (%)")
@@ -284,9 +284,9 @@ def create_web():
     pie_study, pie_suicidal_thoughts, pie_self_harm, pie_dep_diagnosed, \
     pie_behavior, pie_anx_diagnosed, line_list_dep, line_list_anx = \
         analyse_ukrainian(analyser_ukrainian_students(ukrainian))
-    figure1, figure2 = analyse_suicide_by_age("docs/suicide_by_age.csv")
+    figure1, figure2 = analyse_suicide_by_age("../docs/suicide_by_age.csv")
     figure_dep, figure_doc, figure_sui = analyse_students_merge(
-        "docs/students.csv", ukrainian)
+        "../docs/students.csv", ukrainian)
 
     external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
     app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -442,7 +442,18 @@ def create_web():
             
             Кризова національна лінія з питань запобігання суїцидам та 
             профілактики психічного здоров’я «Lifeline Ukraine» – 7333\n
-            """)
+            """),
+        html.H3(children="Джерела баз даних:"),
+        html.Div(children=html.A("Suicide rates by age",
+                                 href="https://data.world/makeovermonday"
+                                      "/2019w43/workspace/file?filename"
+                                      "=Suicide+Deaths+by+Age.csv")),
+        html.Div(children=html.A("Anxiety&Depressive disorders by countries",
+                                 href="https://ourworldindata.org/mental"
+                                      "-health")),
+        html.Div(children=html.A("Students' mental health",
+                                 href="https://www.mdpi.com/2306-5729/4/3"
+                                      "/124/htm"))
     ])
     return app
 
