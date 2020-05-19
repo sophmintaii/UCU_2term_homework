@@ -7,11 +7,11 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import plotly.express as px
-from ..code.psyanalyser import PsyAnalyser
-from ..code.psystudentanalyser import PsyStudentAnalyser
-from ..code.agegroup import AgeGroup
-from ..code.studentgroup import StudentGroup
-from ..code.people import Person, Student
+from ..modules.psyanalyser import PsyAnalyser
+from ..modules.psystudentanalyser import PsyStudentAnalyser
+from ..modules.agegroup import AgeGroup
+from ..modules.studentgroup import StudentGroup
+from ..modules.people import Person, Student
 
 def main():
     """
