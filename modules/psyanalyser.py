@@ -2,8 +2,8 @@
 Contains implementation of PsyAnalyser class.
 It simplifies work with AgeGroup and StudentGroup objects.
 """
-from agegroup import AgeGroup
-from responselist import Response, ResponseList
+from modules.agegroup import AgeGroup
+from modules.responselist import Response, ResponseList
 
 
 class PsyAnalyser:

@@ -3,9 +3,9 @@ Contains implementation of Analyser class,
 which is inherited from PsyAnalyser class.
 It simplifies work with StudentGroup objects.
 """
-from studentgroup import StudentGroup
-from psyanalyser import PsyAnalyser
-from responselist import Response, ResponseList
+from modules.studentgroup import StudentGroup
+from modules.psyanalyser import PsyAnalyser
+from modules.responselist import Response, ResponseList
 
 
 class PsyStudentAnalyser(PsyAnalyser):

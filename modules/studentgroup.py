@@ -2,7 +2,7 @@
 Contains implementation of StudentGroup class.
 StudentGroup class is inherited from AgeGroup.
 """
-from agegroup import AgeGroup, test_input
+from modules.agegroup import AgeGroup, test_input
 
 
 class StudentGroup(AgeGroup):

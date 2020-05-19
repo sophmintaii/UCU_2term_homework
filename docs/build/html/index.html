@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to PsyAnalyser’s documentation! &#8212; PsyAnalyser 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-psyanalyser-s-documentation">
+<h1>Welcome to PsyAnalyser’s documentation!<a class="headerlink" href="#welcome-to-psyanalyser-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="module-modules.analysis">
+<span id="psyanalyser-main"></span><h1>PsyAnalyser main<a class="headerlink" href="#module-modules.analysis" title="Permalink to this headline">¶</a></h1>
+<p>The main module of the program.
+Contains analysis of data from databases and API.</p>
+<dl class="py function">
+<dt id="modules.analysis.analyse_students_merge">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">analyse_students_merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">ukrainian</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.analyse_students_merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>str, list -&gt; plotly line graphs
+Merges data from API and data from databases to analyse
+students’ depression, doctor and suicide parameters.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.analyse_suicide_by_age">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">analyse_suicide_by_age</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.analyse_suicide_by_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>str -&gt; plotly line graphs
+Analyses middle death from suicide age in different years.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.analyse_ukrainian">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">analyse_ukrainian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ukrainian_analyser</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.analyse_ukrainian" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyStudentAnalyser -&gt; plotly diagrams.
+Returns pie and line diagrams for possible parameters
+of ukrainian students.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.analyser_ukrainian_students">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">analyser_ukrainian_students</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ukrainian</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.analyser_ukrainian_students" title="Permalink to this definition">¶</a></dt>
+<dd><p>list -&gt; PsyStudentAnalyser
+Returns Analyser to analyse Ukrainian students mental health.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.count_resp">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">count_resp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.count_resp" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict -&gt; dict
+Counts sum of respondents in particular year.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.create_web">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">create_web</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.create_web" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns web application to run.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.get_countries_data">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">get_countries_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path_percent</span></em>, <em class="sig-param"><span class="n">path_total</span></em>, <em class="sig-param"><span class="n">col</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.get_countries_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>str, str, str -&gt; plotly diagram
+Returns line diagram based on files that contain
+name of the country, percent of people suffering from d/o’s
+and total population of the country for every year.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.analysis.get_from_google_sheets">
+<code class="sig-prename descclassname">modules.analysis.</code><code class="sig-name descname">get_from_google_sheets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sheets</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.get_from_google_sheets" title="Permalink to this definition">¶</a></dt>
+<dd><p>list -&gt; list
+Returns list of responses from all the workplaces listed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.people">
+<span id="psyanalyser-people"></span><h1>PsyAnalyser people<a class="headerlink" href="#module-modules.people" title="Permalink to this headline">¶</a></h1>
+<p>Contains implementation of Person, Student and Student classes.
+Student is inherited from Person,</p>
+<dl class="py class">
+<dt id="modules.people.Person">
+<em class="property">class </em><code class="sig-prename descclassname">modules.people.</code><code class="sig-name descname">Person</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">age</span></em>, <em class="sig-param"><span class="n">depression</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicide</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anxiety</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">doctor</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.people.Person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of the Person.
+The class is needed to work with AgeGroup class.</p>
+<dl class="py method">
+<dt id="modules.people.Person.age">
+<em class="property">property </em><code class="sig-name descname">age</code><a class="headerlink" href="#modules.people.Person.age" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Person) -&gt; int
+Returns age of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__age parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Person.anxiety">
+<em class="property">property </em><code class="sig-name descname">anxiety</code><a class="headerlink" href="#modules.people.Person.anxiety" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Person) -&gt; bool
+Returns 1 if person have anxiety disorders and 0 otherwise.
+:return: __anxiety parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Person.depression">
+<em class="property">property </em><code class="sig-name descname">depression</code><a class="headerlink" href="#modules.people.Person.depression" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns 1 id person have depressive disorders and 0 otherwise.
+:return: __depression parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Person.doctor">
+<em class="property">property </em><code class="sig-name descname">doctor</code><a class="headerlink" href="#modules.people.Person.doctor" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Person) -&gt; int
+Returns 1 if Person visited a doctor and 0 otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__doctor parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Person.suicide">
+<em class="property">property </em><code class="sig-name descname">suicide</code><a class="headerlink" href="#modules.people.Person.suicide" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Person) -&gt; bool
+Returns 1 if person had suicide attempts and 0 otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__suicide parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modules.people.Student">
+<em class="property">class </em><code class="sig-prename descclassname">modules.people.</code><code class="sig-name descname">Student</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">age</span></em>, <em class="sig-param"><span class="n">depression</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anxiety</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicide</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">doctor</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">study</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicidal_thoughts</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">self_harm</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">dep_diagnosed</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">behavior</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anx_diagnosed</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">list_dep</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">list_anx</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.people.Student" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of the Student, who is Person,
+but has additional parameters.</p>
+<dl class="py method">
+<dt id="modules.people.Student.anx_diagnosed">
+<em class="property">property </em><code class="sig-name descname">anx_diagnosed</code><a class="headerlink" href="#modules.people.Student.anx_diagnosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Student) -&gt; int
+Returns True if student have diagnosed anxiety disorder and
+False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__anx_diagnosed parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Student.behavior">
+<em class="property">property </em><code class="sig-name descname">behavior</code><a class="headerlink" href="#modules.people.Student.behavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Student) -&gt; int
+Returns True if student have changed their plans or (and)
+behavior because of anxiety and False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__behavior parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Student.dep_diagnosed">
+<em class="property">property </em><code class="sig-name descname">dep_diagnosed</code><a class="headerlink" href="#modules.people.Student.dep_diagnosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns True if student have diagnosed depressive disorder and
+False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__dep_diagnosed parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Student.self_harm">
+<em class="property">property </em><code class="sig-name descname">self_harm</code><a class="headerlink" href="#modules.people.Student.self_harm" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Student) -&gt; int
+Returns True if student practiced self-harm and False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__self_harm parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Student.study">
+<em class="property">property </em><code class="sig-name descname">study</code><a class="headerlink" href="#modules.people.Student.study" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Student) -&gt; int
+Returns True if student assume that study decreased level of
+their mental health and False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__study parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Student.suicidal_thoughts">
+<em class="property">property </em><code class="sig-name descname">suicidal_thoughts</code><a class="headerlink" href="#modules.people.Student.suicidal_thoughts" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Student) -&gt; int
+Returns 1 if student had suicidal thoughts and 0
+otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__suicidal_thoughts parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.people.Student.suicide">
+<em class="property">property </em><code class="sig-name descname">suicide</code><a class="headerlink" href="#modules.people.Student.suicide" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Student) -&gt; int
+Returns True if student had suicide attempts and False
+otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__suicide parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.people.test_input">
+<code class="sig-prename descclassname">modules.people.</code><code class="sig-name descname">test_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.people.test_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>int -&gt; int
+Returns value if it is correct and 0 otherwise.
+:param value: value to check.
+:param value:
+:return:</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.agegroup">
+<span id="psyanalyser-agegroup"></span><h1>PsyAnalyser agegroup<a class="headerlink" href="#module-modules.agegroup" title="Permalink to this headline">¶</a></h1>
+<p>Contains implementation of AgeGroup class.</p>
+<dl class="py class">
+<dt id="modules.agegroup.AgeGroup">
+<em class="property">class </em><code class="sig-prename descclassname">modules.agegroup.</code><code class="sig-name descname">AgeGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">age</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicide</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicide_resp</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">depression</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">depression_resp</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anxiety</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anxiety_resp</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.agegroup.AgeGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents age group.
+Every age group contains age (years) and counters for suicides,
+depression and anxiety disorders that people of this age have.
+For every of described parameter there are number of respondents
+that took part in questionnaire, if needed.</p>
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.add_person">
+<code class="sig-name descname">add_person</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">person</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.agegroup.AgeGroup.add_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup, Person) -&gt; NoneType
+Adds person parameters to parameters of the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>person</strong> – person to add to group.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.age">
+<em class="property">property </em><code class="sig-name descname">age</code><a class="headerlink" href="#modules.agegroup.AgeGroup.age" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns age parameter of the AgeGroup object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.anxiety">
+<em class="property">property </em><code class="sig-name descname">anxiety</code><a class="headerlink" href="#modules.agegroup.AgeGroup.anxiety" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns number of people in AgeGroup suffering from anxiety
+disorders.
+:return: __anxiety parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.anxiety_resp">
+<em class="property">property </em><code class="sig-name descname">anxiety_resp</code><a class="headerlink" href="#modules.agegroup.AgeGroup.anxiety_resp" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns number of total number of respondents to anxiety
+questionnaire in AgeGroup.
+:return: __anxiety_resp parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.depression">
+<em class="property">property </em><code class="sig-name descname">depression</code><a class="headerlink" href="#modules.agegroup.AgeGroup.depression" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns number of people in AgeGroup suffering from depression.
+:return: __depression parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.depression_resp">
+<em class="property">property </em><code class="sig-name descname">depression_resp</code><a class="headerlink" href="#modules.agegroup.AgeGroup.depression_resp" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns number of total number of respondents to depression
+questionnaire in AgeGroup.
+:return: __depression_resp parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.merge">
+<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.agegroup.AgeGroup.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup, AgeGroup) -&gt; 0
+Merges two AgeGroup objects by summarizing parameters’ values to
+self.
+:param other: AgeGroup to merge with.
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.suicide">
+<em class="property">property </em><code class="sig-name descname">suicide</code><a class="headerlink" href="#modules.agegroup.AgeGroup.suicide" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns number of suicides committed by AgeGroup.
+:return: __suicide parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.agegroup.AgeGroup.suicide_resp">
+<em class="property">property </em><code class="sig-name descname">suicide_resp</code><a class="headerlink" href="#modules.agegroup.AgeGroup.suicide_resp" title="Permalink to this definition">¶</a></dt>
+<dd><p>(AgeGroup) -&gt; int
+Returns number of total number of respondents to suicide
+questionnaire in AgeGroup.
+:return: __suicide_resp parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="modules.agegroup.test_input">
+<code class="sig-prename descclassname">modules.agegroup.</code><code class="sig-name descname">test_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.agegroup.test_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>int -&gt; int
+Returns value if it is correct and 0 otherwise.
+:param value: value to check.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.studentgroup">
+<span id="psyanalyser-studentgroup"></span><h1>PsyAnalyser studentgroup<a class="headerlink" href="#module-modules.studentgroup" title="Permalink to this headline">¶</a></h1>
+<p>Contains implementation of StudentGroup class.
+StudentGroup class is inherited from AgeGroup.</p>
+<dl class="py class">
+<dt id="modules.studentgroup.StudentGroup">
+<em class="property">class </em><code class="sig-prename descclassname">modules.studentgroup.</code><code class="sig-name descname">StudentGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">age</span></em>, <em class="sig-param"><span class="n">depression</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anxiety</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicide</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">study</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">suicidal_thoughts</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">self_harm</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">dep_diagnosed</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">behavior</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">anx_diagnosed</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">doctor</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">total</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">list_dep</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">list_anx</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.studentgroup.StudentGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of StudentGroup, which is AgeGroup,
+but has additional parameters.</p>
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.add_person">
+<code class="sig-name descname">add_person</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">person</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.studentgroup.StudentGroup.add_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup, Person) -&gt; NoneType
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.anx_diagnosed">
+<em class="property">property </em><code class="sig-name descname">anx_diagnosed</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.anx_diagnosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who have diagnosed anxiety disorder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__anx_diagnosed parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.behavior">
+<em class="property">property </em><code class="sig-name descname">behavior</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.behavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who have changed their plans or (and)
+behavior because of anxiety.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__behavior parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.dep_diagnosed">
+<em class="property">property </em><code class="sig-name descname">dep_diagnosed</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.dep_diagnosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who have diagnosed depressive
+disorder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__dep_diagnosed parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.doctor">
+<em class="property">property </em><code class="sig-name descname">doctor</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.doctor" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who have visited a doctor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__doctor parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.merge">
+<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.studentgroup.StudentGroup.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>StudentGroup, StudentGroup -&gt; NoneType
+Merges two AgeGroup objects by summarizing parameters’ values to
+self.
+:param other: AgeGroup to merge with.
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.self_harm">
+<em class="property">property </em><code class="sig-name descname">self_harm</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.self_harm" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who practiced self-harm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__self_harm parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.study">
+<em class="property">property </em><code class="sig-name descname">study</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.study" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who assume that study decreased level
+of their mental health.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__study parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.suicidal_thoughts">
+<em class="property">property </em><code class="sig-name descname">suicidal_thoughts</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.suicidal_thoughts" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who had suicidal_thoughts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__suicidal_thoughts parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.suicide">
+<em class="property">property </em><code class="sig-name descname">suicide</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.suicide" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns number of students who had suicide attempts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__suicide parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.studentgroup.StudentGroup.total">
+<em class="property">property </em><code class="sig-name descname">total</code><a class="headerlink" href="#modules.studentgroup.StudentGroup.total" title="Permalink to this definition">¶</a></dt>
+<dd><p>(StudentGroup) -&gt; int
+Returns total number of students.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>__total parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.psyanalyser">
+<span id="psyanalyser-psyanalyser"></span><h1>PsyAnalyser psyanalyser<a class="headerlink" href="#module-modules.psyanalyser" title="Permalink to this headline">¶</a></h1>
+<p>Contains implementation of PsyAnalyser class.
+It simplifies work with AgeGroup and StudentGroup objects.</p>
+<dl class="py class">
+<dt id="modules.psyanalyser.PsyAnalyser">
+<em class="property">class </em><code class="sig-prename descclassname">modules.psyanalyser.</code><code class="sig-name descname">PsyAnalyser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of PsyAnalyser.</p>
+<dl class="py method">
+<dt id="modules.psyanalyser.PsyAnalyser.add_group">
+<code class="sig-name descname">add_group</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser.add_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Analyser, AgeGroup) -&gt; NoneType
+Adds group to dictionary of groups, so that its structure is
+age: AgeGroup.
+If group of given age already exists, it changes it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>group</strong> – age group to add to the dictionary.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psyanalyser.PsyAnalyser.add_person">
+<code class="sig-name descname">add_person</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">person</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser.add_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Analyser, Person) -&gt; NoneType
+Adds person to dictionary by adding their parameters to the
+corresponding dictionary value.
+I such an AgeGroup doesn’t exist, creates new AgeGroup based on
+the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>person</strong> – Person object to add.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psyanalyser.PsyAnalyser.get_anxiety">
+<code class="sig-name descname">get_anxiety</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser.get_anxiety" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns percents of people suffering from anxiety d/o in each
+age group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psyanalyser.PsyAnalyser.get_depression">
+<code class="sig-name descname">get_depression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser.get_depression" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns percents of people suffering from depressive d/o in each
+age group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psyanalyser.PsyAnalyser.get_suicide">
+<code class="sig-name descname">get_suicide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser.get_suicide" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns percents of people who had suicide attempts in each
+age group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psyanalyser.PsyAnalyser.groups">
+<em class="property">property </em><code class="sig-name descname">groups</code><a class="headerlink" href="#modules.psyanalyser.PsyAnalyser.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Analyser) -&gt; dict
+Returns groups from the PsyAnalyser object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value of __groups parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.psystudentanalyser">
+<span id="psyanalyser-psystudentanalyser"></span><h1>PsyAnalyser psystudentanalyser<a class="headerlink" href="#module-modules.psystudentanalyser" title="Permalink to this headline">¶</a></h1>
+<p>Contains implementation of Analyser class,
+which is inherited from PsyAnalyser class.
+It simplifies work with StudentGroup objects.</p>
+<dl class="py class">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser">
+<em class="property">class </em><code class="sig-prename descclassname">modules.psystudentanalyser.</code><code class="sig-name descname">PsyStudentAnalyser</code><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Student Analyser representation.
+Is Analyser, but with wider options.</p>
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.add_person">
+<code class="sig-name descname">add_person</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">person</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.add_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Analyser, Person) -&gt; NoneType
+Adds person to dictionary by adding their parameters to the
+corresponding dictionary value.
+I such an StudentGroup doesn’t exist, creates a new one
+based on the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>person</strong> – Person object to add.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_anx_diagnosed">
+<code class="sig-name descname">get_anx_diagnosed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_anx_diagnosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percent of people who have been diagnosed with
+anxiety d/o.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_anxiety">
+<code class="sig-name descname">get_anxiety</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_anxiety" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns percents of people suffering from anxiety d/o in each
+age group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_behavior">
+<code class="sig-name descname">get_behavior</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_behavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percent of people who have changed their behavior and/or
+plans because of anxiety.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_dep_diagnosed">
+<code class="sig-name descname">get_dep_diagnosed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_dep_diagnosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percent of people who have been diagnosed with
+depressive d/o.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_depression">
+<code class="sig-name descname">get_depression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_depression" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns percents of people suffering from depressive d/o in each
+age group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_doctor">
+<code class="sig-name descname">get_doctor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_doctor" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percents of people who had visited a therapist in each
+age group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_list_anx">
+<code class="sig-name descname">get_list_anx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_list_anx" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns prevalence of each anxiety d/o.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_list_dep">
+<code class="sig-name descname">get_list_dep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_list_dep" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns prevalence of each depressive d/o.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_self_harm">
+<code class="sig-name descname">get_self_harm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_self_harm" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percent of people who practice(d) self-harm.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_study">
+<code class="sig-name descname">get_study</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_study" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percent of people who think studying negatively
+affected their mental health.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_suicidal_thoughts">
+<code class="sig-name descname">get_suicidal_thoughts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_suicidal_thoughts" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser, bool -&gt; ResponseList
+Returns percent of people who had/have suicidal thoughts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.psystudentanalyser.PsyStudentAnalyser.get_suicide">
+<code class="sig-name descname">get_suicide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.psystudentanalyser.PsyStudentAnalyser.get_suicide" title="Permalink to this definition">¶</a></dt>
+<dd><p>PsyAnalyser -&gt; ResponseList
+Returns percents of people who had suicide attempts in each
+age group.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.responselist">
+<span id="psyanalyser-responselist"></span><h1>PsyAnalyser responselist<a class="headerlink" href="#module-modules.responselist" title="Permalink to this headline">¶</a></h1>
+<p>Contains implementation of ResponseList ADT and Response class.</p>
+<dl class="py class">
+<dt id="modules.responselist.Response">
+<em class="property">class </em><code class="sig-prename descclassname">modules.responselist.</code><code class="sig-name descname">Response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.responselist.Response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of the Response, which is a pair of numbers.
+The first number is value of x and the second one is value of y,
+so that data is ready to be plotted.</p>
+<dl class="py method">
+<dt id="modules.responselist.Response.get_df_for_pie">
+<code class="sig-name descname">get_df_for_pie</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.responselist.Response.get_df_for_pie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response -&gt; list
+Returns data from Response so that it can easily be turned
+into a pandas data frame to plot pie diagram.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.responselist.Response.value_x">
+<em class="property">property </em><code class="sig-name descname">value_x</code><a class="headerlink" href="#modules.responselist.Response.value_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response -&gt; int/str
+Returns value of value_x parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.responselist.Response.value_y">
+<em class="property">property </em><code class="sig-name descname">value_y</code><a class="headerlink" href="#modules.responselist.Response.value_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response -&gt; int/float
+Returns value of value_y parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modules.responselist.ResponseList">
+<em class="property">class </em><code class="sig-prename descclassname">modules.responselist.</code><code class="sig-name descname">ResponseList</code><a class="headerlink" href="#modules.responselist.ResponseList" title="Permalink to this definition">¶</a></dt>
+<dd><p>ResponseList ADT implementation based on linked list.</p>
+<dl class="py method">
+<dt id="modules.responselist.ResponseList.get_df_for_line">
+<code class="sig-name descname">get_df_for_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.responselist.ResponseList.get_df_for_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>ResponseList -&gt; list
+Returns data from ResponseList so that it can easily be turned
+into a pandas data frame to plot line graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modules.responselist.ResponseList.head">
+<em class="property">property </em><code class="sig-name descname">head</code><a class="headerlink" href="#modules.responselist.ResponseList.head" title="Permalink to this definition">¶</a></dt>
+<dd><p>ResponseList -&gt; Response
+:return: _head value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">PsyAnalyser</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Sofiia Myntiuk.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

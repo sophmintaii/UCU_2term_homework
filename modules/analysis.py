@@ -9,10 +9,10 @@ import pandas as pd
 import plotly.express as px
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from psyanalyser import PsyAnalyser
-from psystudentanalyser import PsyStudentAnalyser
-from agegroup import AgeGroup
-from people import Student
+from modules.psyanalyser import PsyAnalyser
+from modules.psystudentanalyser import PsyStudentAnalyser
+from modules.agegroup import AgeGroup
+from modules.people import Student
 
 
 def count_resp(data):
