@@ -33,7 +33,18 @@ Especially I want to emphasize issues with teenagers and students.
 ***
 ### Contents
 * [modules](https://github.com/sophmintaii/UCU_2term_homework/tree/master/modules)
-  * [agegroup.py]()
+  * [responselist.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/responselist.py) - contains ADT implementation.
+  * [people.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/people.py) - contains implementation of Person and Student classes.
+  * [agegroup.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/agegroup.py) - contains implementation of AgeGroup class.
+  * [studentgroup.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/studentgroup.py) -  contains implementations of StudentGroup class.
+  * [psyanalyser.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/psyanalyser.py) - comtains implementation os PsyAnalyser class.
+  * [psystudentanalyser.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/psystudentanalyser.py) - contains implementation of PsyStudentAnalyser class.
+  * [analysis.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/modules/analysis.py) - the main module of the program, where data analysis and web page creation happen.
+
+* [examples](https://github.com/sophmintaii/UCU_2term_homework/tree/master/examples)
+  * [example_google_sheets.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/examples/example_google_sheets.py) - example of Google Sheets API usage.
+  * [example_libraries.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/examples/example_libraries.py) - example of Pandas, Plotly and Dash libraries usage.
+  [example_adt.py](https://github.com/sophmintaii/UCU_2term_homework/blob/master/examples/example_adt.py) - example of ResponseList ADT usage.
 
 ***
 ### Wiki contents
