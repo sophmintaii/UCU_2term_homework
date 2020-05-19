@@ -26,9 +26,15 @@
 * how many students with anxiety disorders have been diagnosed
 
 ***
-### Aim
+### Aim and usage
 This project's aim is to attract people's attention to the mental health problems both in Ukraine and abroad.
 Especially I want to emphasize issues with teenagers and students.
+
+To launch and run web application, run module analysis.py, which is the main module of the program.
+
+When web app launches, in requests information from the Googhe Spreadsheets usin Google Sheets API.
+
+To open application, click on the link in terminal after running main module. (it launches only locally)
 
 ***
 ### Contents
@@ -60,14 +66,6 @@ Especially I want to emphasize issues with teenagers and students.
 
 * [Homework #5  results](https://github.com/sophmintaii/UCU_2term_homework/wiki/5.-%D0%A0%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D0%B8-%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B4%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8C%D0%BE%D0%B3%D0%BE-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-%E2%84%965)
 
-
-***
-### Usage
-To launch and run web application, run module analysis.py, which is the main module of the program.
-
-When web app launches, in requests information from the Googhe Spreadsheets usin Google Sheets API.
-
-To open application, click on the link in terminal after running main module. (it launches only locally)
 
 ***
 ### Web application
