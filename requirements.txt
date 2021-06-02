@@ -59,6 +59,6 @@ seaborn==0.10.0
 Shapely==1.7.0
 six==1.14.0
 uritemplate==3.0.1
-urllib3==1.25.8
+urllib3==1.26.5
 Werkzeug==1.0.1
 wrapt==1.11.2
